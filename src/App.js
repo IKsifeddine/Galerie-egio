@@ -1,11 +1,14 @@
-
-
-
+import Gallery from "./components/Gallery";
+import data from "./data" ;
 function App() {
   return (
-    <div >
-    <h1 >hello this the first line</h1>
-    </div>
+    <>
+
+
+      <Gallery data={data} />
+
+
+    </>
   );
 }
 
