@@ -84,7 +84,7 @@ const data = [
         description: "Honda Africa Twin",
       },
       {
-        src: "/assets/moto10.jpeg",
+        src: "/assets/moto10.webp",
         description: "KTM 1290 Super Adventure",
       },
     ],
@@ -97,7 +97,7 @@ const data = [
         description: "Air Maroc",
       },
       {
-        src: "/assets/plan2.jpeg",
+        src: "/assets/plan2.webp",
         description: "Emirates",
       },
       {
