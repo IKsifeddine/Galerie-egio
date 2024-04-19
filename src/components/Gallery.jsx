@@ -29,12 +29,16 @@ const Gallery = ({ data }) => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-300 min-h-screen">
       <h1 className="text-4xl font-serif text-center py-8 text-blue-950">
         Welcome To Your Gallery🌌
       </h1>
       <div className="container mx-auto mb-8">
+        
         {/* Render filter buttons */}
+
+
+
         <div className="flex justify-center mb-6 space-x-4">
           {categories.map((category) => (
             <button
@@ -49,6 +53,10 @@ const Gallery = ({ data }) => {
             </button>
           ))}
         </div>
+
+
+
+
 
         {/* Render filtered data */}
         {filteredData.map((category) => (
