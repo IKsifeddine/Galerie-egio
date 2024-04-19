@@ -84,8 +84,8 @@ const data = [
         description: "Honda Africa Twin",
       },
       {
-        src: "/assets/moto10.webp",
-        description: "KTM 1290 Super Adventure",
+        src: "/assets/moto10.jpeg",
+        description: "KTM 1290 ",
       },
     ],
   },

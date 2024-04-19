@@ -36,11 +36,14 @@ const Gallery = ({ data }) => {
     .reduce((acc, category) => acc.concat(category.vehicles), [])
     .slice(indexOfFirstImage, indexOfLastImage);
 
-  // Calculate the total number of pages
-  const totalPages = Math.ceil(
-    filteredData.reduce((acc, category) => acc + category.vehicles.length, 0) /
-      imagesPerPage
+  // Calculate the total number of images in the filtered data
+  const totalImages = filteredData.reduce(
+    (acc, category) => acc + category.vehicles.length,
+    0
   );
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(totalImages / imagesPerPage);
 
   // Handle click event to navigate to CardDetail
   const handleImageClick = (vehicleSrc) => {
@@ -74,7 +77,7 @@ const Gallery = ({ data }) => {
               key={category}
               className={`px-4 py-2 rounded-lg text-white ${
                 category === selectedCategory ? "bg-blue-600" : "bg-blue-400"
-              } hover:bg-blue-500 focus:outline-none`}
+              } hover:bg-blue-500 focus:outline-none transition-transform transform hover:scale-105`}
               onClick={() => handleCategorySelect(category)}
             >
               {/* Capitalize the first letter of the category name */}
@@ -84,7 +87,7 @@ const Gallery = ({ data }) => {
         </div>
 
         {/* Render current images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 p-4 md:grid-cols-3 gap-4">
           {currentImages.map((vehicle, index) => (
             <div
               key={index}
@@ -108,27 +111,32 @@ const Gallery = ({ data }) => {
         </div>
 
         {/* Pagination controls */}
-        <div className="flex justify-center mt-8">
-          <button
-            className={`px-4 py-2 mr-2 rounded-lg ${
-              currentPage > 1 ? "bg-blue-400" : "bg-gray-400"
-            } text-white hover:bg-blue-500 focus:outline-none`}
-            disabled={currentPage === 1}
-            onClick={handlePrevPage}
-          >
-            Previous
-          </button>
-          <button
-            className={`px-4 py-2 ml-2 rounded-lg ${
-              currentPage < totalPages ? "bg-blue-400" : "bg-gray-400"
-            } text-white hover:bg-blue-500 focus:outline-none`}
-            disabled={currentPage === totalPages}
-            onClick={handleNextPage}
-          >
-            Next
-          </button>
-        </div>
+        {totalImages > imagesPerPage && (
+          <div className="flex justify-center mt-8">
+            <button
+              className={`px-4 py-2 mr-2 rounded-lg ${
+                currentPage > 1 ? "bg-blue-400" : "bg-gray-400"
+              } text-white hover:bg-blue-500 focus:outline-none transition-transform transform hover:scale-105`}
+              disabled={currentPage === 1}
+              onClick={handlePrevPage}
+            >
+              Previous
+            </button>
+            <button
+              className={`px-4 py-2 ml-2 rounded-lg ${
+                currentPage < totalPages ? "bg-blue-400" : "bg-gray-400"
+              } text-white hover:bg-blue-500 focus:outline-none transition-transform transform hover:scale-105`}
+              disabled={currentPage === totalPages}
+              onClick={handleNextPage}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
+      <footer className="bg-blue-500 text-white py-4 text-center  bottom-0 w-full">
+        <p className="font-semibold text-lg">&copy; 2024 Gallery</p>
+      </footer>
     </div>
   );
 };

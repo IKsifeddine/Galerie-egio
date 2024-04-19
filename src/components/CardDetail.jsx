@@ -19,9 +19,9 @@ const CardDetail = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-900">
+    <div className="flex flex-col h-screen bg-gray-300">
       {/* Button to return to the gallery */}
-      <div className="w-full text-left p-4">
+      <div className="w-full text-left p-4 mt-3">
         <button
           onClick={handleBackToGallery}
           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
