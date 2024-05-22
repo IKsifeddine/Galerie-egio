@@ -15,7 +15,7 @@ const CardDetail = () => {
 
   // Function to handle the button click to navigate back to the gallery
   const handleBackToGallery = () => {
-    navigate("/");
+    navigate(-1);
   };
 
   return (
